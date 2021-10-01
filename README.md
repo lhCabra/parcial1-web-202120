@@ -18,4 +18,4 @@
 
 ## Documentación endpoint
 
-Agregue aquí al documentación del endpoint elaborado.
+El end point fue realizado trayendo de los datos las alturas, viendo si el numero 'pareja' existia dentro de los datos y generando un array con las parejas, esto se hizo con un get, con axios se accedio a los datos y y con un resp se responde el json correspondiente.
