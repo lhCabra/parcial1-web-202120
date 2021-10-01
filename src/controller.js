@@ -11,9 +11,7 @@ for (i in data.values)
 {
   alturas.push(parseInt(data.values[i].h_in))
 }
-var alt2=Array.from(new Set(alturas));
 var parejas=[];
-console.log(alt2.sort());
 
 for(i in data.values)
 {
@@ -26,17 +24,24 @@ for(i in data.values)
     parejas.push([sec,pri]);
   }
 }
-
 console.log(parejas)
   var result=[];
   for (i in data.values)
   {
-    if(data.values[i].h_in==78)
+    for(j in parejas)
     {
-      result.push(data.values[i]);
+    if(data.values[i].h_in==parejas[j][0])
+    {
+      
+      for (w in data.values)
+  {if(data.values[w].h_in==parejas[j][1])
+    {
+      result.push([data.values[i],data.values[w]]);
+    }}
     }
   }
-  resp.json(data);
+  }
+  resp.json(result);
 };
 
 module.exports = { getPairsOfPlayers };
