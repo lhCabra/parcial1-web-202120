@@ -1,11 +1,11 @@
 const { response, request } = require('express');
 var axios = require('axios');
-const getPairsOfPlayers = async (req = request, resp = response, next) => {
+const getPairsOfPlayers = async (req = request, resp = response, next,num) => {
     const {data}= await axios(
     `https://gist.githubusercontent.com/jhonatan89/bc554ec3ded15407609714e8b7b8f1c8/raw/5ab1e3e5b45e99aabcbbdd30f55d2ae5eafb9cbe/nba-players`
   )
- // const num = req.query;
- const num =139;
+  
+ num =139;
  var alturas=[];
 for (i in data.values)
 {
@@ -17,10 +17,9 @@ for(i in data.values)
 {
   const pri=parseInt(data.values[i].h_in);
   const sec=num-parseInt(data.values[i].h_in);
-  console.log(sec)
+  
   if(alturas.includes(sec))
   {
-    console.log('entro')
     parejas.push([sec,pri]);
   }
 }
